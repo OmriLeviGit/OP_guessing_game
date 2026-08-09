@@ -22,3 +22,46 @@ utility:
 ---
 performance:
 - create a test suite for prompts (currently not added as this burns through the daily limit anyways)
+
+
+---
+good example from nvidia:
+parser_prompt = ChatPromptTemplate.from_template(
+    "Update the knowledge base: {format_instructions}. Only use information from the input."
+    "\n\nNEW MESSAGE: {input}"
+)
+
+**notebook 4 has some good examples of running state**
+**notebook 5 is talking about document refinement - contains a prompt example**
+
+**llambda index can be used instead of accessing chroma directly**
+**read on vector guided graph construction**
+**RecursiveCharacterTextSplitter** from langchain is extremely important - maybe use the llama index alternative
+
+When extending and optimizing this approach for an arbitrary set of documents, some potential options include:
+    Identifying logical breaks or synthesis techniques (manually, automatically, LLM-assisted, etc).
+    Aiming to construct chunks that are rich in unique and relevant information, avoiding redundancy to maximize database utility. - **consider some documents being large and in such cases limit further how many docs enter context (more small docs vs fewer larger ones dynamically)
+    Customizing chunking to fit the document’s nature, ensuring the chunks are contextually relevant and cohesive.
+    Including key concepts, keywords, or metadata snippets in each chunk for improved searchability and relevance in the database.
+    Continuously assessing chunking effectiveness and be ready to adjust strategies for optimal balance between size and content richness.
+    Considering a hierarchy system (implicitly-generated or explicitly-specified) to improve retrieval attempts.
+        If interested, please look over the LlamaIndex tree structures from the index guide as a starting point.
+
+chunks should be like 3-5 paragraphs, around 500-1200 tokens, and around 3-5 chunks in total for each rag query?
+
+https://blog.langchain.com/using-a-knowledge-graph-to-implement-a-devops-rag-application/
+
+**Dual-Pathway Embedding Models** - improve performance
+dual pathways of embedding both **queries** and **documents**.
+
+#### **Query Embedding**
+- **Purpose**: Designed for embedding shorter-form or question-like material, such as a simple statement or a question.
+- **Method**: Utilizes `embed_query` for embedding each query individually.
+- **Role in Retrieval**: Acts as the "key" creator to enable search (query process) in a document retrieval framework.
+- **Usage Pattern**: Embedded dynamically, as needed, for comparison against a pre-processed collection of document embeddings.
+
+#### **Document Embedding**
+- **Purpose**: Tailored for longer-form or response-like content, including document chunks or paragraphs.
+- **Method**: Employs `embed_documents` for batch processing of documents.
+- **Role in Retrieval**: Acts as the "value" creator to make the searchable content for the retrieval system.
+- **Usage Pattern**: Typically embedded en masse as a pre-processing step, creating a repository of document embeddings for future querying.

@@ -1,0 +1,8 @@
+❌ Failed to load: Gaikotsu Yukichi - /img/sm_avatars/Belly#Overview.webp CharacterImage.tsx:31:21
+❌ Failed to load: Hiroki - /img/sm_avatars/Camel_Pirates#Crew_Members.webp CharacterImage.tsx:31:21
+❌ Failed to load: Jack-in-the-Box - /img/sm_avatars/Zombie#Jack-in-the-Box.webp CharacterImage.tsx:31:21
+❌ Failed to load: Jige - /img/sm_avatars/Tomcat_Pirates#Crew_Members.webp CharacterImage.tsx:31:21
+❌ Failed to load: Kisasa - /img/sm_avatars/Title_Card_Pirates#Crew_Members.webp CharacterImage.tsx:31:21
+❌ Failed to load: Mr. Sacrifice - /img/sm_avatars/Sapoten_Graveyard#Buried_People.webp CharacterImage.tsx:31:21
+❌ Failed to load: Rug Bear - /img/sm_avatars/Zombie#Rug_Bear.webp CharacterImage.tsx:31:21
+❌ Failed to load: Wall Zombie - /img/sm_avatars/Zombie#Wall_Zombie.webp
